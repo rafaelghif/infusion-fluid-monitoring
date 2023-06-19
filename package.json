@@ -22,14 +22,18 @@
         "@ionic/react-router": "^7.0.0",
         "@types/react-router": "^5.1.20",
         "@types/react-router-dom": "^5.3.3",
+        "apexcharts": "^3.41.0",
         "firebase": "^9.22.2",
         "ionicons": "^7.0.0",
         "react": "^18.2.0",
+        "react-apexcharts": "^1.4.0",
         "react-data-table-component": "^7.5.3",
         "react-dom": "^18.2.0",
+        "react-query": "^3.39.3",
         "react-router": "^5.3.4",
         "react-router-dom": "^5.3.4",
-        "styled-components": "^5.3.11"
+        "styled-components": "^5.3.11",
+        "zustand": "^4.3.8"
     },
     "devDependencies": {
         "@capacitor/cli": "5.0.5",
