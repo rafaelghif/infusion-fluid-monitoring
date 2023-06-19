@@ -1,7 +1,7 @@
 {
-  "name": "infusion-fluid-monitoring",
-  "integrations": {
-    "capacitor": {}
-  },
-  "type": "react-vite"
+    "name": "infusion-fluid-monitoring",
+    "integrations": {
+        "capacitor": {}
+    },
+    "type": "react-vite"
 }
