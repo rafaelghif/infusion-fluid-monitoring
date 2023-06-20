@@ -25,7 +25,7 @@ const MenuList: React.FC = () => {
                     <MenuCard text="Report" routerLink="/report" icon={readerOutline} />
                 </IonCol>
                 <IonCol size="6">
-                    <MenuCard text="Sign Out" routerLink="/login" icon={logOutOutline} onClick={handleLogout} />
+                    <MenuCard text="Sign Out" href="/login" icon={logOutOutline} onClick={handleLogout} />
                 </IonCol>
             </IonRow>
         </IonGrid>

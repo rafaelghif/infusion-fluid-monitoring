@@ -1,1 +1,0 @@
-System.register(["./index-legacy-3dc447cb.js"],(function(e,t){"use strict";var c,n,r,s,a;return{setters:[e=>{c=e.J,n=e.T,r=e.L,s=e.V,a=e.Z}],execute:function(){const i=c.lazy((()=>n((()=>t.import("./RadialChart-legacy-79aae51b.js")),void 0)));e("default",(()=>r(s,{children:r(c.Suspense,{fallback:r(a,{name:"crescent"}),children:r(i,{})})})))}}}));
