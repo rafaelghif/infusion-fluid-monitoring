@@ -1,7 +1,7 @@
 import { Suspense, lazy, useCallback, useState } from "react";
+import { IonRefresher, IonRefresherContent, IonSpinner, RefresherEventDetail } from "@ionic/react";
 import Card from "../../../components/Card";
 import { UserInterface } from "../../../types/user-type";
-import { IonRefresher, IonRefresherContent, IonSpinner, RefresherEventDetail } from "@ionic/react";
 import ModalUpdateUser from "./ModalUpdateUser";
 import { useQuery } from "react-query";
 import { getUsers } from "../../../services/user-service";
