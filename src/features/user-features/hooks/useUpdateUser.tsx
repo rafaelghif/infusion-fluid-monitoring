@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "react-query";
 import { UpdateUserType } from "../../../types/user-type";
-import { updateUser } from "../../../services/user-serivce";
+import { updateUser } from "../../../services/user-service";
 import useToast from "../../../hooks/useToast";
 import useLoadingStore from "../../../stores/useLoadingStore";
 

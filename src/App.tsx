@@ -25,18 +25,21 @@ import "./index.css";
 
 import MainRouter from "./routers/MainRouter";
 import useLoadingStore from "./stores/useLoadingStore";
+import { setToken } from "./services/local-storage-service";
+import { createToken } from "./services/token-service";
 
 setupIonicReact();
 
 const App: React.FC = () => {
-    // useEffect(() => {
-    //     getToken(messaging).then((token) => {
-    //         console.log("token", token);
-    //     }).catch(err => {
-    //         console.error(err);
-    //     });
-    // }, []);
     const { isLoading } = useLoadingStore();
+    useEffect(() => {
+        getToken(messaging).then(async (token) => {
+            setToken(token);
+            await createToken(token);
+        }).catch(err => {
+            console.error(err);
+        });
+    }, []);
     return (
         <IonApp>
             <IonLoading isOpen={isLoading} />

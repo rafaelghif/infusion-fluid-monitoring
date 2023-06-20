@@ -7,15 +7,18 @@ import User from "../pages/User";
 import Login from "../pages/Login";
 import Dashboard from "../pages/Dashboard";
 import Report from "../pages/Report";
+import useAuthStore from "../stores/useAuthStore";
+import PrivateRoute from "./PrivateRoute";
 
 const MainRouter: React.FC = () => {
+    const { isAuth } = useAuthStore();
     return (
         <IonReactRouter>
             <IonRouterOutlet>
-                <Route exact path="/home" component={Home} />
-                <Route exact path="/dashboard" component={Dashboard} />
-                <Route exact path="/user" component={User} />
-                <Route exact path="/report" component={Report} />
+                <Route exact path="/home" component={() => <PrivateRoute isAuth={isAuth} component={Home} />} />
+                <Route exact path="/dashboard" component={() => <PrivateRoute isAuth={isAuth} component={Dashboard} />} />
+                <Route exact path="/user" component={() => <PrivateRoute isAuth={isAuth} isAdmin={true} component={User} />} />
+                <Route exact path="/report" component={() => <PrivateRoute isAuth={isAuth} isAdmin={true} component={Report} />} />
                 <Route exact path="/login" component={Login} />
                 <Route exact path="/">
                     <Redirect to="/home" />

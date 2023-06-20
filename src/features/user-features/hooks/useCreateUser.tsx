@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from "react-query";
 import { CreateUserType } from "../../../types/user-type";
-import { createUser } from "../../../services/user-serivce";
+import { createUser } from "../../../services/user-service";
 import useToast from "../../../hooks/useToast";
 import useLoadingStore from "../../../stores/useLoadingStore";
 

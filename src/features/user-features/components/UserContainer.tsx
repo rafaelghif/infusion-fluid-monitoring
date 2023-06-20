@@ -1,14 +1,20 @@
-import { Suspense, lazy, useState } from "react";
-import useQueryUser from "../hooks/useQueryUser";
+import { Suspense, lazy, useCallback, useState } from "react";
 import Card from "../../../components/Card";
 import { UserInterface } from "../../../types/user-type";
 import { IonRefresher, IonRefresherContent, IonSpinner, RefresherEventDetail } from "@ionic/react";
 import ModalUpdateUser from "./ModalUpdateUser";
+import { useQuery } from "react-query";
+import { getUsers } from "../../../services/user-service";
 
 const TableUser = lazy(() => import("./TableUser"));
 
 const UserContainer: React.FC = () => {
-    const { data, refetch } = useQueryUser();
+    const fetchItem = useCallback(async () => {
+        return await getUsers();
+    }, []);
+
+    const { data, refetch } = useQuery(["user"], fetchItem);
+
     const [selectedValue, setSelectedValue] = useState<UserInterface>();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);
 
@@ -21,6 +27,7 @@ const UserContainer: React.FC = () => {
         setSelectedValue(value);
         setIsOpenModal(true);
     }
+
     return (
         <>
             <Card title="Data Users">

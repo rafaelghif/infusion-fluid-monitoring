@@ -1,14 +1,10 @@
-import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore"
-import { database } from "../libs/firebase"
+import { addDoc, collection, doc, getDocs, setDoc } from "firebase/firestore";
+import { database } from "../libs/firebase";
 
-export const getCollection = async (collectionName: string) => {
+export const getCollection = async (collectionName: string): Promise<any> => {
     try {
         const querySnapShoot = await getDocs(collection(database, collectionName));
-        const data: any = [];
-        querySnapShoot.forEach((doc) => {
-            data.push({ id: doc.id, ...doc.data() });
-        });
-        return data;
+        return querySnapShoot.docs.map(doc => ({ id: doc.id, ...doc.data() }));
     } catch (err) {
         return Promise.reject(err);
     }

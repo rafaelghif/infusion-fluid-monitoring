@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Modal from "../../../components/Modal";
-import { CreateUserType, UpdateUserType, UserInterface } from "../../../types/user-type";
+import {  UpdateUserType, UserInterface } from "../../../types/user-type";
 import { IonButton, IonCheckbox, IonInput, IonItem } from "@ionic/react";
 import useUpdateUser from "../hooks/useUpdateUser";
 

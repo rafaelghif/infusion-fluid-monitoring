@@ -3,12 +3,13 @@ import { IonCard, IonCardContent, IonCardHeader, IonCardTitle } from "@ionic/rea
 interface CardInterface {
     children: React.ReactNode;
     title?: string;
-    routerLink?: string
+    routerLink?: string;
+    onClick?: () => void;
 }
 
-const Card: React.FC<CardInterface> = ({ children, title, routerLink }) => {
+const Card: React.FC<CardInterface> = ({ children, title, routerLink, onClick }) => {
     return (
-        <IonCard routerLink={routerLink}>
+        <IonCard routerLink={routerLink} onClick={onClick}>
             <IonCardHeader hidden={!title}>
                 <IonCardTitle>{title ?? ""}</IonCardTitle>
             </IonCardHeader>

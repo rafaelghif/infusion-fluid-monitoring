@@ -2,7 +2,7 @@ import { useIonToast } from "@ionic/react";
 
 const useToast = () => {
     const [present] = useIonToast();
-    
+
     const successToast = (message: string) => {
         present({
             message,
@@ -12,8 +12,18 @@ const useToast = () => {
         });
     }
 
+    const errorToast = (message: string) => {
+        present({
+            message,
+            position: "middle",
+            color: "danger",
+            duration: 3000
+        });
+    }
+
     return {
-        successToast
+        successToast,
+        errorToast
     }
 }
 

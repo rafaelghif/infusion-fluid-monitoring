@@ -13,6 +13,7 @@ const fireBaseConfig = {
 }
 
 const app = initializeApp(fireBaseConfig);
+
 const database = getFirestore(app);
 const messaging = getMessaging(app);
 
