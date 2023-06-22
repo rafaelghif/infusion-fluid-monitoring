@@ -3,7 +3,7 @@ import MenuList from "../features/home-features/components/MenuList";
 
 const Home: React.FC = () => {
     return (
-        <MainLayout title="Home" backButton={false}>
+        <MainLayout title="Infusion Fluid Monitoring" backButton={false}>
             <MenuList />
         </MainLayout>
     );
