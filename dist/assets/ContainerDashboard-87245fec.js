@@ -1,0 +1,1 @@
+import{t as r,_ as e,v as a,F as t,G as n}from"./index-42c79485.js";const s=r.lazy(()=>e(()=>import("./RadialChart-a8f691f0.js"),["assets/RadialChart-a8f691f0.js","assets/index-42c79485.js","assets/index-7e396d3b.css"])),i=()=>a(t,{children:a(r.Suspense,{fallback:a(n,{name:"crescent"}),children:a(s,{})})});export{i as default};

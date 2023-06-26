@@ -12,12 +12,12 @@ const useToast = () => {
         });
     }
 
-    const errorToast = (message: string) => {
+    const errorToast = (message: string, duration: number = 3000, position: "middle" | "bottom" | "top" = "middle") => {
         present({
             message,
-            position: "middle",
+            position: position,
             color: "danger",
-            duration: 3000
+            duration: duration
         });
     }
 

@@ -1,7 +1,7 @@
 import { IonApp, IonLoading, setupIonicReact } from "@ionic/react";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { getToken } from "@firebase/messaging";
-import { messaging } from "./libs/firebase";
+import { database, messaging } from "./libs/firebase";
 
 /* Core CSS required for Ionic components to work properly */
 import "@ionic/react/css/core.css";
@@ -27,17 +27,29 @@ import MainRouter from "./routers/MainRouter";
 import useLoadingStore from "./stores/useLoadingStore";
 import { setToken } from "./services/local-storage-service";
 import { createToken } from "./services/token-service";
+import { doc, onSnapshot } from "firebase/firestore";
+import useToast from "./hooks/useToast";
 
 setupIonicReact();
 
 const App: React.FC = () => {
     const { isLoading } = useLoadingStore();
+    const { errorToast } = useToast();
     useEffect(() => {
         getToken(messaging).then(async (token) => {
             setToken(token);
             await createToken(token);
         }).catch(err => {
             console.error(err);
+        });
+
+        let unsubscribe = onSnapshot(doc(database, "measurement", "data"), (doc) => {
+            const data = doc.data();
+            if (data?.value) {
+                if (data?.value <= 10) {
+                    errorToast("Infusion Fluid Under 10%", 10000, "bottom");
+                }
+            }
         });
     }, []);
     return (
