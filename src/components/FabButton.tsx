@@ -1,11 +1,11 @@
 import { IonFab, IonFabButton, IonIcon } from "@ionic/react"
 import { addOutline } from "ionicons/icons"
 
-interface FabButtonInterface {
+interface FabButtonProps {
     onClick: () => void;
 }
 
-const FabButton: React.FC<FabButtonInterface> = ({ onClick }) => {
+const FabButton: React.FC<FabButtonProps> = ({ onClick }) => {
     return (
         <IonFab slot="fixed" vertical="bottom" horizontal="end" onClick={onClick}>
             <IonFabButton>

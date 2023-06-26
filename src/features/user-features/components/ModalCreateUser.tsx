@@ -4,12 +4,12 @@ import { CreateUserType } from "../../../types/user-type";
 import useCreateUser from "../hooks/useCreateUser";
 import { IonButton, IonCheckbox, IonInput, IonItem } from "@ionic/react";
 
-interface ModalCreateUserInterface {
+interface ModalCreateUserProps {
     isOpen: boolean;
     onDidDismiss: () => void;
 }
 
-const ModalCreateUser: React.FC<ModalCreateUserInterface> = ({ isOpen, onDidDismiss }) => {
+const ModalCreateUser: React.FC<ModalCreateUserProps> = ({ isOpen, onDidDismiss }) => {
     const [formData, setFormData] = useState<CreateUserType>({ name: "", username: "", password: "", isAdmin: false });
     const { mutate } = useCreateUser();
 

@@ -4,13 +4,13 @@ import {  UpdateUserType, UserInterface } from "../../../types/user-type";
 import { IonButton, IonCheckbox, IonInput, IonItem } from "@ionic/react";
 import useUpdateUser from "../hooks/useUpdateUser";
 
-interface ModalUpdateUserInterface {
+interface ModalUpdateUserProps {
     isOpen: boolean;
     data?: UserInterface,
     onDidDismiss: () => void;
 }
 
-const ModalUpdateUser: React.FC<ModalUpdateUserInterface> = ({ isOpen, data, onDidDismiss }) => {
+const ModalUpdateUser: React.FC<ModalUpdateUserProps> = ({ isOpen, data, onDidDismiss }) => {
     const [formData, setFormData] = useState<UpdateUserType>({});
     const { mutate } = useUpdateUser();
 

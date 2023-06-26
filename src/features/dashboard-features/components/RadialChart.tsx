@@ -1,11 +1,14 @@
 import { ApexOptions } from "apexcharts";
+import { doc, onSnapshot } from "firebase/firestore";
+import { useEffect, useState } from "react";
 import ReactApexChart from "react-apexcharts";
+import { database } from "../../../libs/firebase";
 
 const RadialChart: React.FC = () => {
-    const series = [75];
+    const [series, setSeries] = useState<number[]>([0]);
     const options: ApexOptions = {
         chart: {
-            height: 350,
+            height: 250,
             type: "radialBar",
             toolbar: {
                 show: true
@@ -76,8 +79,16 @@ const RadialChart: React.FC = () => {
         },
         labels: ["Percent"]
     }
+    useEffect(() => {
+        let unsubscribe = onSnapshot(doc(database, "measurement", "data"), (doc) => {
+            const data = doc.data();
+            setSeries([data?.value]);
+        });
+
+        return () => unsubscribe();
+    }, []);
     return (
-        <ReactApexChart type="radialBar" options={options} series={series} height={660} />
+        <ReactApexChart type="radialBar" options={options} series={series} height={550} />
     );
 }
 

@@ -13,7 +13,7 @@ const UserContainer: React.FC = () => {
         return await getUsers();
     }, []);
 
-    const { data, refetch } = useQuery(["user"], fetchItem);
+    const { data, refetch } = useQuery(["users"], fetchItem);
 
     const [selectedValue, setSelectedValue] = useState<UserInterface>();
     const [isOpenModal, setIsOpenModal] = useState<boolean>(false);

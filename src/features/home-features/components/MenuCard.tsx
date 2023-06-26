@@ -1,7 +1,7 @@
 import { IonIcon, IonText } from "@ionic/react";
 import Card from "../../../components/Card";
 
-interface MenuCardInterface {
+interface MenuCardProps {
     text: string;
     icon: string;
     routerLink?: string;
@@ -9,7 +9,7 @@ interface MenuCardInterface {
     onClick?: () => void;
 }
 
-const MenuCard: React.FC<MenuCardInterface> = ({ text, icon, routerLink, href, onClick }) => {
+const MenuCard: React.FC<MenuCardProps> = ({ text, icon, routerLink, href, onClick }) => {
     return (
         <Card routerLink={routerLink} href={href} onClick={onClick}>
             <div className="flex flex-col items-center justify-center gap-2 p-5">
