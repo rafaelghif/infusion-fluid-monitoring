@@ -6,7 +6,7 @@ const ContainerDashboard = lazy(() => import("../features/dashboard-features/com
 
 const Dashboard: React.FC = () => {
     return (
-        <MainLayout title="Dashboard">
+        <MainLayout title="Dashboard" padding={false}>
             <Suspense fallback={<IonSpinner name="crescent" />}>
                 <ContainerDashboard />
             </Suspense>
