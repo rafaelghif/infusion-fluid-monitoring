@@ -13,7 +13,8 @@ const initialUser: UserInterface = {
     name: "",
     username: "",
     password: "",
-    isAdmin: false
+    isAdmin: false,
+    isNurse: false
 }
 
 const useUserStore = create<UserState>()(

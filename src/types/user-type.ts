@@ -4,6 +4,7 @@ export interface UserInterface {
     username: string;
     password: string;
     isAdmin: boolean;
+    isNurse?: boolean;
 }
 
 export type CreateUserType = Pick<UserInterface, "name" | "username" | "password" | "isAdmin">;

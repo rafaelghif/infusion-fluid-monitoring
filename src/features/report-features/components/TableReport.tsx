@@ -16,12 +16,7 @@ const TableReport: React.FC<TableReportProps> = ({ data }) => {
         wrap: true
     }, {
         name: "Nurse Name",
-        selector: row => row.nurseName,
-        sortable: true,
-        wrap: true
-    }, {
-        name: "Patient Name",
-        selector: row => row.patientName,
+        selector: row => row.name,
         sortable: true,
         wrap: true
     }, {
@@ -31,7 +26,7 @@ const TableReport: React.FC<TableReportProps> = ({ data }) => {
         wrap: true
     }, {
         name: "Refill Date",
-        selector: row => `${row.refillDate}`,
+        selector: row => `${row.inputTime}`,
         sortable: true,
         wrap: true
     }], []);

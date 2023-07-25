@@ -14,6 +14,7 @@ const RadialChart: React.FC<RadialChartProps> = ({ series }) => {
             toolbar: {
                 show: true
             },
+
         },
         plotOptions: {
             radialBar: {
@@ -44,7 +45,7 @@ const RadialChart: React.FC<RadialChartProps> = ({ series }) => {
                         left: 0,
                         blur: 4,
                         opacity: 0.35
-                    }
+                    },
                 },
                 dataLabels: {
                     show: true,
@@ -58,6 +59,9 @@ const RadialChart: React.FC<RadialChartProps> = ({ series }) => {
                         color: "#111",
                         fontSize: "36px",
                         show: true,
+                        formatter: (val: any) => {
+                            return `${(val * 500) / 100}`;
+                        }
                     },
                 },
             },
@@ -78,10 +82,10 @@ const RadialChart: React.FC<RadialChartProps> = ({ series }) => {
         stroke: {
             lineCap: "round"
         },
-        labels: ["Percent"]
+        labels: ["Mililiters"]
     }
     return (
-        <ReactApexChart type="radialBar" options={options} series={series} width={isPlatform("android") ? 600 : 900} />
+        <ReactApexChart type="radialBar" options={options} series={series} width={isPlatform("android") ? 600 : 700} />
     );
 }
 

@@ -11,7 +11,7 @@ const ContainerDashboard: React.FC = () => {
     useEffect(() => {
         let unsubscribe = onSnapshot(doc(database, "measurement", "data"), (doc) => {
             const data = doc.data();
-            setSeries([data?.value]);
+            setSeries([(data?.value / 500) * 100]);
         });
 
         return () => unsubscribe();
