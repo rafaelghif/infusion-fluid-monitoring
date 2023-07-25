@@ -5,7 +5,7 @@ import { UserInterface } from "../../../types/user-type";
 import { ReportInterface } from "../../../types/report-type";
 
 interface TableReportProps {
-    data: UserInterface[];
+    data: ReportInterface[];
 }
 
 const TableReport: React.FC<TableReportProps> = ({ data }) => {
