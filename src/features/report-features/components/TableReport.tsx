@@ -1,7 +1,6 @@
 import { TableColumn } from "react-data-table-component";
 import { useMemo } from "react";
 import Table from "../../../components/Table";
-import { UserInterface } from "../../../types/user-type";
 import { ReportInterface } from "../../../types/report-type";
 
 interface TableReportProps {
@@ -22,6 +21,11 @@ const TableReport: React.FC<TableReportProps> = ({ data }) => {
     }, {
         name: "Weight",
         selector: row => `${row.weight}g`,
+        sortable: true,
+        wrap: true
+    }, {
+        name: "Total Weight",
+        selector: row => `${row.totalWeight}g`,
         sortable: true,
         wrap: true
     }, {
